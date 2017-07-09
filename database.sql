@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jul 08, 2017 at 02:07 PM
+-- Generation Time: Jul 09, 2017 at 02:54 PM
 -- Server version: 10.1.23-MariaDB
 -- PHP Version: 7.1.5
 
@@ -331,7 +331,6 @@ CREATE TABLE `nilai` (
 --
 
 INSERT INTO `nilai` (`id_nilai`, `jum_nilai`, `ket_nilai`) VALUES
-(2, 9, 'Mutlak sangat penting dari'),
 (3, 8, 'Mendekati mutlak dari'),
 (8, 7, 'Sangat penting dari'),
 (9, 6, 'Mendekati sangat penting dari'),
@@ -352,13 +351,35 @@ INSERT INTO `nilai` (`id_nilai`, `jum_nilai`, `ket_nilai`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `nilai_awal`
+--
+
+CREATE TABLE `nilai_awal` (
+  `id_nilai_awal` int(11) NOT NULL,
+  `nik` char(18) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nilai` varchar(5) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `keterangan` enum('B','C','K') COLLATE utf8mb4_unicode_ci NOT NULL,
+  `periode` char(4) COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `nilai_awal`
+--
+
+INSERT INTO `nilai_awal` (`id_nilai_awal`, `nik`, `nilai`, `keterangan`, `periode`) VALUES
+(3, '230932094823', '82.6', 'B', '2006'),
+(4, '2147126186', '60', 'K', '2005');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `pengguna`
 --
 
 CREATE TABLE `pengguna` (
   `id_pengguna` int(11) NOT NULL,
   `nama_lengkap` varchar(255) NOT NULL,
-  `role` enum('atasan','pegawai','manajer') NOT NULL,
+  `role` enum('atasan','kepegawaian','manajer') NOT NULL,
   `username` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -368,9 +389,9 @@ CREATE TABLE `pengguna` (
 --
 
 INSERT INTO `pengguna` (`id_pengguna`, `nama_lengkap`, `role`, `username`, `password`) VALUES
-(1, 'Imam Digmi', 'pegawai', 'pegawai', '047aeeb234644b9e2d4138ed3bc7976a'),
+(1, 'Imam Digmi', 'kepegawaian', 'pegawai', '047aeeb234644b9e2d4138ed3bc7976a'),
 (2, 'Sriwani', 'atasan', 'atasan', '221ef2597affd3f083ac94af9e1b1e7f'),
-(3, 'Dede', 'manajer', 'dede', 'b4be1c568a6dc02dcaf2849852bdb13e');
+(3, 'Dede', 'manajer', 'manajer', '69b731ea8f289cf16a192ce78a37b4f0');
 
 -- --------------------------------------------------------
 
@@ -425,6 +446,13 @@ ALTER TABLE `nilai`
   ADD PRIMARY KEY (`id_nilai`);
 
 --
+-- Indexes for table `nilai_awal`
+--
+ALTER TABLE `nilai_awal`
+  ADD PRIMARY KEY (`id_nilai_awal`),
+  ADD KEY `nik` (`nik`);
+
+--
 -- Indexes for table `pengguna`
 --
 ALTER TABLE `pengguna`
@@ -445,6 +473,11 @@ ALTER TABLE `ranking`
 --
 ALTER TABLE `nilai`
   MODIFY `id_nilai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+--
+-- AUTO_INCREMENT for table `nilai_awal`
+--
+ALTER TABLE `nilai_awal`
+  MODIFY `id_nilai_awal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `pengguna`
 --
