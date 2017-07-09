@@ -55,7 +55,7 @@ if ($_POST) {
             <select class="form-control" name="rl" id="rl" required>
               <option value="">----</option>
               <option value="atasan">Atasan</option>
-              <option value="pegawai">Pegawai</option>
+              <option value="kepegawaian">Kepegawaian</option>
               <option value="manajer">Manajer</option>
             </select>
           </div>

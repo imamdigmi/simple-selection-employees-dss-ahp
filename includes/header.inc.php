@@ -45,7 +45,7 @@ $db = $config->getConnection();
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
               <li><a href="index.php">Home <span class="sr-only">(current)</span></a></li>
-              <?php if ($_SESSION["role"] == "pegawai"): ?>
+              <?php if ($_SESSION["role"] == "kepegawaian"): ?>
                   <li role="presentation"><a href="data-alternatif.php">Pegawai</a></li>
               <?php endif; ?>
 
@@ -76,7 +76,9 @@ $db = $config->getConnection();
                   <a href="#" class="dropdown-toggle text-red text-bold" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?=$_SESSION["nama_lengkap"]?> <span class="caret"></span></a>
                   <ul class="dropdown-menu">
                       <li><a href="profil.php">Profil</a></li>
-                      <li><a href="user.php">Manejer Pengguna</a></li>
+                      <?php if ($_SESSION["role"] == "kepegawaian"): ?>
+                          <li><a href="user.php">Manejer Pengguna</a></li>
+                      <?php endif; ?>
                       <li role="separator" class="divider"></li>
                       <li><a href="logout.php">Logout</a></li>
                   </ul>

@@ -46,7 +46,7 @@ if ($_POST) {
             <label for="rl">Role</label>
             <select class="form-control" name="rl" id="rl">
               <option value="atasan"<?=($eks->rl == "atasan") ? "selected=\"on\"" : "" ?>>Atasan</option>
-              <option value="pegawai"<?=($eks->rl == "pegawai") ? "selected=\"on\"" : "" ?>>Pegawai</option>
+              <option value="kepegawaian"<?=($eks->rl == "kepegawaian") ? "selected=\"on\"" : "" ?>>Kepegawaian</option>
               <option value="manajer"<?=($eks->rl == "manajer") ? "selected=\"on\"" : "" ?>>Manajer</option>
             </select>
           </div>
