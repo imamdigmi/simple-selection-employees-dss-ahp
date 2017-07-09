@@ -91,7 +91,7 @@ $stmt5 = $pro5->readAll();
 				type: 'column'
 			},
 			title: {
-				text: 'Grafik Perangkingan '
+				text: 'Grafik Usulan'
 			},
 			xAxis: {
 				categories: ['Alternatif']

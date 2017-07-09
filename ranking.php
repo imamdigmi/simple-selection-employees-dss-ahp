@@ -26,7 +26,7 @@ $stmtx2y = $pro->readBob();
 		<br/>
 		<div class="row">
 			<div class="col-md-6 text-left">
-				<h4>Data Rangking</h4>
+				<h4>Data Usulan</h4>
 			</div>
 			<div class="col-md-6 text-right">
 	      <button type="button" onclick="location.href='index.php'" class="btn btn-primary"><i class="fa fa-arrow-left"></i> Kembali</button>
@@ -87,7 +87,7 @@ $stmtx2y = $pro->readBob();
 				</tr>
 			</tbody>
 	  </table>
-		<h3>Hasil Perangkingan</h3>
+		<h3>Hasil Usulan</h3>
 		<br/>
 		<table width="100%" class="table table-striped table-bordered">
 	    <thead>

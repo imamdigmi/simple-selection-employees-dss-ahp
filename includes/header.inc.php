@@ -54,18 +54,20 @@ $db = $config->getConnection();
                   <li role="presentation"><a href="nilai.php">Nilai</a></li>
               <?php endif; ?>
 
-              <?php if ($_SESSION["role"] == "atasan" OR $_SESSION["role"] == "manajer"): ?>
+              <?php if ($_SESSION["role"] == "atasan"): ?>
                   <li class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Analisan <span class="caret"></span></a>
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Analisa <span class="caret"></span></a>
                       <ul class="dropdown-menu">
                           <li role="presentation"><a href="analisa-kriteria.php">Kriteria</a></li>
                           <li role="presentation"><a href="analisa-alternatif.php">Alternatif</a></li>
                       </ul>
                   </li>
+              <?php endif; ?>
+              <?php if ($_SESSION["role"] == "atasan" OR $_SESSION["role"] == "manajer"): ?>
                   <li class="dropdown">
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Laporan <span class="caret"></span></a>
                       <ul class="dropdown-menu">
-                          <li role="presentation"><a href="ranking.php">Ranking</a></li>
+                          <li role="presentation"><a href="ranking.php">Usulan</a></li>
                           <li role="presentation"><a href="laporan-cetak.php" target="_blank">Laporan</a></li>
                       </ul>
                   </li>

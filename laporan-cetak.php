@@ -82,7 +82,7 @@ while ($rowx1 = $stmtx1->fetch(PDO::FETCH_ASSOC)){
 $pdf->ln();
 
 $pdf->SetFont('Times','B',14);
-$pdf->Cell(40,10,'Hasil Perangkingan',0,0,'L');
+$pdf->Cell(40,10,'Hasil Usulan',0,0,'L');
 $pdf->ln();
 
 $pdf->SetFont('Times','B',12);
