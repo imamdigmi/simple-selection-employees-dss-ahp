@@ -3,7 +3,15 @@ include_once('includes/header.inc.php');
 include_once('includes/nilai-awal.inc.php');
 $pro = new NilaiAwal($db);
 $stmt = $pro->readAll();
-$count = $pro->countAll();
+
+include_once('includes/kriteria.inc.php');
+$kriteriaObj = new Kriteria($db);
+$kriteria = $kriteriaObj->readAll();
+
+
+include_once('includes/nilai-awal-detail.inc.php');
+$nilAwDeObj = new NilaiAwalDetail($db);
+// $nilAwDe = $nilAwDeObj->readAllByNik();
 
 if (isset($_POST['hapus-contengan'])) {
     $imp = "('".implode("','", array_values($_POST['checkbox']))."')";
@@ -91,6 +99,7 @@ if (isset($_POST['hapus-contengan'])) {
                 ?></td>
               <td style="vertical-align:middle;"><?php echo $row['periode'] ?></td>
               <td class="text-center" style="vertical-align:middle;">
+                <button type="button" class="btn btn-xs btn-primary" data-toggle="modal" data-target=".modal" data-nik="<?php echo $row['nik'] ?>"><span class="fa fa-eye" aria-hidden="true"></span></button>
                 <a href="nilai-awal-ubah.php?id=<?php echo $row['id_nilai_awal'] ?>" class="btn btn-warning btn-xs"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
                 <a href="nilai-awal-hapus.php?id=<?php echo $row['id_nilai_awal'] ?>" onclick="return confirm('Yakin ingin menghapus data')" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
               </td>
@@ -99,6 +108,24 @@ if (isset($_POST['hapus-contengan'])) {
           </tbody>
         </table>
       </form>
+    </div>
+  </div>
+
+  <!-- Default bootstrap modal example -->
+  <div class="modal fade">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Nilai Detail</h4>
+        </div>
+        <div class="modal-body">
+          <p>One fine body&hellip;</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+        </div>
+      </div>
     </div>
   </div>
 

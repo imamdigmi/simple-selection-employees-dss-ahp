@@ -34,6 +34,15 @@ class NilaiAwalDetail {
 		return $stmt;
 	}
 
+	function readAllWithCriteria() {
+		$query = "SELECT c.nama_kriteria AS kriteria, b.nilai FROM nilai_awal a JOIN {$this->table_name} b ON a.id_nilai_awal=b.id_nilai JOIN data_kriteria c ON b.id_kriteria=c.id_kriteria WHERE a.nik=?";
+		$stmt = $this->conn->prepare($query);
+		$stmt->bindParam(1, $this->id);
+		$stmt->execute();
+
+		return $stmt;
+	}
+
 	function readOne() {
 		$query = "SELECT * FROM {$this->table_name} WHERE id_nilai_awal_detail=? LIMIT 0,1";
 		$stmt = $this->conn->prepare($query);

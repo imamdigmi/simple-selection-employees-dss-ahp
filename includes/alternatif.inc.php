@@ -86,6 +86,27 @@ class Alternatif {
 		// $this->skor_alternatif = $row['skor_alternatif'];
 	}
 
+	function readOneByNik(){
+		$query = "SELECT * FROM {$this->table_name} WHERE nik=? LIMIT 0,1";
+		$stmt = $this->conn->prepare($query);
+		$stmt->bindParam(1, $this->nik);
+		$stmt->execute();
+		$row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+		$this->id = $row["id_alternatif"];
+		$this->nik = $row["nik"];
+		$this->nama = $row["nama"];
+		$this->tempat_lahir = $row["tempat_lahir"];
+		$this->tanggal_lahir = $row["tanggal_lahir"];
+		$this->kelamin = $row["kelamin"];
+		$this->alamat = $row["alamat"];
+		$this->jabatan = $row["jabatan"];
+		$this->tanggal_masuk = $row["tanggal_masuk"];
+		$this->pendidikan = $row["pendidikan"];
+		$this->hasil_akhir = $row["hasil_akhir"];
+		// $this->skor_alternatif = $row['skor_alternatif'];
+	}
+
 	function getNewID() {
 		$query = "SELECT id_alternatif FROM {$this->table_name} ORDER BY id_alternatif DESC LIMIT 1";
 		$stmt = $this->conn->prepare($query);
