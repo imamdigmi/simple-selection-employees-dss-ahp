@@ -2,7 +2,7 @@
 include_once('includes/header.inc.php');
 include_once('includes/alternatif.inc.php');
 $pro = new Alternatif($db);
-$stmt = $pro->readAll();
+$stmt = $pro->readAllWithNilai();
 $count = $pro->countAll();
 
 if (isset($_POST['hapus-contengan'])) {
@@ -55,25 +55,9 @@ if (isset($_POST['hapus-contengan'])) {
     	<br/>
 
   	<table width="100%" class="table table-striped table-bordered" id="tabeldata">
-      <thead>
-        <tr>
-          <th width="10px"><input type="checkbox" name="select-all" id="select-all" /></th>
-          <th>ID Alternatif</th>
-          <th>Nik</th>
-          <th>Nama</th>
-          <th>Tempat, Tanggal Lahir</th>
-          <th>Kelamin</th>
-          <th>Alamat</th>
-          <th>Jabatan</th>
-          <th>Tanggal Masuk</th>
-          <th>Pendidikan</th>
-          <th>Hasil Akhir</th>
-          <th width="100px">Aksi</th>
-        </tr>
-      </thead>
-        <tfoot>
+        <thead>
           <tr>
-            <th><input type="checkbox" name="select-all2" id="select-all2" /></th>
+            <th width="10px"><input type="checkbox" name="select-all" id="select-all" /></th>
             <th>ID Alternatif</th>
             <th>Nik</th>
             <th>Nama</th>
@@ -83,10 +67,11 @@ if (isset($_POST['hapus-contengan'])) {
             <th>Jabatan</th>
             <th>Tanggal Masuk</th>
             <th>Pendidikan</th>
+            <th>Nilai</th>
             <th>Hasil Akhir</th>
-            <th>Aksi</th>
+            <th width="100px">Aksi</th>
           </tr>
-        </tfoot>
+        </thead>
         <tbody>
           <?php $no=1; while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) : ?>
             <tr>
@@ -100,6 +85,7 @@ if (isset($_POST['hapus-contengan'])) {
               <td style="vertical-align:middle;"><?php echo $row['jabatan'] ?></td>
               <td style="vertical-align:middle;"><?php echo $row['tanggal_masuk'] ?></td>
               <td style="vertical-align:middle;"><?php echo $row['pendidikan'] ?></td>
+              <td style="vertical-align:middle;"><?php echo $row["nilai"] ?> (<?php echo $row["keterangan"] ?>)</td>
               <td style="vertical-align:middle;"><?php echo $row['hasil_akhir'] ?></td>
               <td class="text-center" style="vertical-align:middle;">
             		<a href="data-alternatif-ubah.php?id=<?php echo $row['id_alternatif'] ?>" class="btn btn-warning btn-xs"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>

@@ -49,6 +49,14 @@ class Alternatif {
 		return $stmt;
 	}
 
+	function readAllWithNilai() {
+		$query = "SELECT *, b.nilai, b.keterangan FROM {$this->table_name} a JOIN nilai_awal b ON a.nik=b.nik ORDER BY b.nilai DESC";
+		$stmt = $this->conn->prepare($query);
+		$stmt->execute();
+
+		return $stmt;
+	}
+
 	function countAll(){
 		$query = "SELECT * FROM {$this->table_name} ORDER BY id_alternatif ASC";
 		$stmt = $this->conn->prepare( $query );
