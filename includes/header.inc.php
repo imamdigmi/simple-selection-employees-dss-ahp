@@ -51,13 +51,13 @@ $db = $config->getConnection();
 
               <?php if ($_SESSION["role"] == "atasan"): ?>
                   <li role="presentation"><a href="data-kriteria.php">Kriteria</a></li>
-                  <li role="presentation"><a href="nilai.php">Nilai</a></li>
+                  <li role="presentation"><a href="nilai.php">Skala Dasar AHP</a></li>
                   <li role="presentation"><a href="nilai-awal.php">Nilai Awal</a></li>
               <?php endif; ?>
 
               <?php if ($_SESSION["role"] == "atasan"): ?>
                   <li class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Analisa <span class="caret"></span></a>
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Perbandingan <span class="caret"></span></a>
                       <ul class="dropdown-menu">
                           <li role="presentation"><a href="analisa-kriteria.php">Kriteria</a></li>
                           <li role="presentation"><a href="analisa-alternatif.php">Alternatif</a></li>

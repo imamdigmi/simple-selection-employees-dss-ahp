@@ -119,7 +119,7 @@ window.onload=function(){
 							<div class="form-group">
 								<select class="form-control" name="nl1">
 								<?php $stmt1 = $pro2->readAll(); while ($row2 = $stmt1->fetch(PDO::FETCH_ASSOC)): ?>
-									<option value="<?php echo $row2['jum_nilai'] ?>"><?php echo $row2['jum_nilai'] ?> - <?php echo $row2['ket_nilai'] ?></option>
+									<option value="<?php echo $row2['jum_nilai'] ?>"><?php echo $row2['ket_nilai'] ?></option>
 								<?php endwhile; ?>
 								</select>
 							</div>
@@ -147,7 +147,7 @@ window.onload=function(){
 							<div class="form-group">
 								<select class="form-control" name="nl2">
 								<?php $stmt1 = $pro2->readAll(); while ($row2 = $stmt1->fetch(PDO::FETCH_ASSOC)): ?>
-									<option value="<?php echo $row2['jum_nilai'] ?>"><?php echo $row2['jum_nilai'] ?> - <?php echo $row2['ket_nilai'] ?></option>
+									<option value="<?php echo $row2['jum_nilai'] ?>"><?php echo $row2['ket_nilai'] ?></option>
 								<?php endwhile; ?>
 								</select>
 							</div>
@@ -175,7 +175,7 @@ window.onload=function(){
 							<div class="form-group">
 								<select class="form-control" name="nl3">
 								<?php $stmt1 = $pro2->readAll(); while ($row2 = $stmt1->fetch(PDO::FETCH_ASSOC)): ?>
-									<option value="<?php echo $row2['jum_nilai'] ?>"><?php echo $row2['jum_nilai'] ?> - <?php echo $row2['ket_nilai'] ?></option>
+									<option value="<?php echo $row2['jum_nilai'] ?>"><?php echo $row2['ket_nilai'] ?></option>
 								<?php endwhile; ?>
 								</select>
 							</div>
@@ -203,7 +203,7 @@ window.onload=function(){
 							<div class="form-group">
 								<select class="form-control" name="nl4">
 								<?php $stmt1 = $pro2->readAll(); while ($row2 = $stmt1->fetch(PDO::FETCH_ASSOC)): ?>
-									<option value="<?php echo $row2['jum_nilai'] ?>"><?php echo $row2['jum_nilai'] ?> - <?php echo $row2['ket_nilai'] ?></option>
+									<option value="<?php echo $row2['jum_nilai'] ?>"><?php echo $row2['ket_nilai'] ?></option>
 								<?php endwhile; ?>
 								</select>
 							</div>
@@ -231,7 +231,7 @@ window.onload=function(){
 							<div class="form-group">
 								<select class="form-control" name="nl5">
 								<?php $stmt1 = $pro2->readAll(); while ($row2 = $stmt1->fetch(PDO::FETCH_ASSOC)): ?>
-									<option value="<?php echo $row2['jum_nilai'] ?>"><?php echo $row2['jum_nilai'] ?> - <?php echo $row2['ket_nilai'] ?></option>
+									<option value="<?php echo $row2['jum_nilai'] ?>"><?php echo $row2['ket_nilai'] ?></option>
 								<?php endwhile; ?>
 								</select>
 							</div>
@@ -259,7 +259,7 @@ window.onload=function(){
 							<div class="form-group">
 								<select class="form-control" name="nl6">
 								<?php $stmt1 = $pro2->readAll(); while ($row2 = $stmt1->fetch(PDO::FETCH_ASSOC)): ?>
-									<option value="<?php echo $row2['jum_nilai'] ?>"><?php echo $row2['jum_nilai'] ?> - <?php echo $row2['ket_nilai'] ?></option>
+									<option value="<?php echo $row2['jum_nilai'] ?>"><?php echo $row2['ket_nilai'] ?></option>
 								<?php endwhile; ?>
 								</select>
 							</div>
@@ -287,7 +287,7 @@ window.onload=function(){
 							<div class="form-group">
 								<select class="form-control" name="nl7">
 								<?php $stmt1 = $pro2->readAll(); while ($row2 = $stmt1->fetch(PDO::FETCH_ASSOC)): ?>
-									<option value="<?php echo $row2['jum_nilai'] ?>"><?php echo $row2['jum_nilai'] ?> - <?php echo $row2['ket_nilai'] ?></option>
+									<option value="<?php echo $row2['jum_nilai'] ?>"><?php echo $row2['ket_nilai'] ?></option>
 								<?php endwhile; ?>
 								</select>
 							</div>
@@ -315,7 +315,7 @@ window.onload=function(){
 							<div class="form-group">
 								<select class="form-control" name="nl8">
 								<?php $stmt1 = $pro2->readAll(); while ($row2 = $stmt1->fetch(PDO::FETCH_ASSOC)): ?>
-									<option value="<?php echo $row2['jum_nilai'] ?>"><?php echo $row2['jum_nilai'] ?> - <?php echo $row2['ket_nilai'] ?></option>
+									<option value="<?php echo $row2['jum_nilai'] ?>"><?php echo $row2['ket_nilai'] ?></option>
 								<?php endwhile; ?>
 								</select>
 							</div>
@@ -343,7 +343,7 @@ window.onload=function(){
 							<div class="form-group">
 								<select class="form-control" name="nl9">
 								<?php $stmt1 = $pro2->readAll(); while ($row2 = $stmt1->fetch(PDO::FETCH_ASSOC)): ?>
-									<option value="<?php echo $row2['jum_nilai'] ?>"><?php echo $row2['jum_nilai'] ?> - <?php echo $row2['ket_nilai'] ?></option>
+									<option value="<?php echo $row2['jum_nilai'] ?>"><?php echo $row2['ket_nilai'] ?></option>
 								<?php endwhile; ?>
 								</select>
 							</div>
@@ -371,7 +371,7 @@ window.onload=function(){
 							<div class="form-group">
 								<select class="form-control" name="nl10">
 								<?php $stmt1 = $pro2->readAll(); while ($row2 = $stmt1->fetch(PDO::FETCH_ASSOC)): ?>
-									<option value="<?php echo $row2['jum_nilai'] ?>"><?php echo $row2['jum_nilai'] ?> - <?php echo $row2['ket_nilai'] ?></option>
+									<option value="<?php echo $row2['jum_nilai'] ?>"><?php echo $row2['ket_nilai'] ?></option>
 								<?php endwhile; ?>
 								</select>
 							</div>
