@@ -63,7 +63,6 @@ if (isset($_POST['hapus-contengan'])) {
             <th>Nama</th>
             <th>Tempat, Tanggal Lahir</th>
             <th>Kelamin</th>
-            <th>Alamat</th>
             <th>Jabatan</th>
             <th>Tanggal Masuk</th>
             <th>Pendidikan</th>
@@ -81,7 +80,6 @@ if (isset($_POST['hapus-contengan'])) {
               <td style="vertical-align:middle;"><?php echo $row['nama'] ?></td>
               <td style="vertical-align:middle;"><?php echo $row['tempat_lahir'] ?>, <?php echo $row['tanggal_lahir'] ?></td>
               <td style="vertical-align:middle;"><?php echo $row['kelamin'] ?></td>
-              <td style="vertical-align:middle;"><?php echo $row['alamat'] ?></td>
               <td style="vertical-align:middle;"><?php echo $row['jabatan'] ?></td>
               <td style="vertical-align:middle;"><?php echo $row['tanggal_masuk'] ?></td>
               <td style="vertical-align:middle;"><?php echo $row['pendidikan'] ?></td>
