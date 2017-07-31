@@ -13,8 +13,8 @@ class Bobot {
 		$this->conn = $db;
 	}
 
-	function insert($a,$b,$c) {
-		$query = "INSERT INTO".$this->table_name." VALUES('$a','$b','','$c')";
+	function insert($a, $b, $c) {
+		$query = "INSERT INTO {$this->table_name} VALUES('$a', '$b', 0, '$c')";
 		$stmt = $this->conn->prepare($query);
 
 		if ($stmt->execute()) {
@@ -24,7 +24,7 @@ class Bobot {
 		}
 	}
 
-	function insert2($a,$b,$c) {
+	function insert2($a, $b, $c) {
 		$query = "UPDATE {$this->table_name} SET hasil_analisa_kriteria='$a' WHERE kriteria_pertama='$b' AND kriteria_kedua='$c'";
 		$stmt = $this->conn->prepare($query);
 
@@ -38,6 +38,7 @@ class Bobot {
 	function insert3($a, $b) {
 		$query = "UPDATE data_kriteria SET jumlah_kriteria='$a' WHERE id_kriteria='$b'";
 		$stmt = $this->conn->prepare($query);
+
 		if ($stmt->execute()) {
 			return true;
 		} else {
@@ -95,12 +96,61 @@ class Bobot {
 		$this->nak = $row['jumkr'];
 	}
 
+	function getIr($n) {
+		switch ($n) {
+		case 3:
+			$r = 0.58;
+			break;
+		case 4:
+			$r = 0.90;
+			break;
+		case 5:
+			$r = 1.12;
+			break;
+		case 6:
+			$r = 1.24;
+			break;
+		case 7:
+			$r = 1.32;
+			break;
+		case 8:
+			$r = 1.41;
+			break;
+		case 9:
+			$r = 1.45;
+			break;
+		case 10:
+			$r = 1.49;
+			break;
+		case 11:
+			$r = 1.51;
+			break;
+		case 12:
+			$r = 1.48;
+			break;
+		case 13:
+			$r = 1.56;
+			break;
+		case 14:
+			$r = 1.57;
+			break;
+		case 15:
+			$r = 1.59;
+			break;
+
+		default:
+			$r = 0.00;
+			break;
+		}
+		return $r;
+	}
+
 	function readSum2($a) {
-		$query = "SELECT sum(hasil_analisa_kriteria) AS jumkr2 FROM {$this->table_name} WHERE kriteria_kedua = '$a'";
+		$query = "SELECT sum(hasil_analisa_kriteria) AS jumlah FROM {$this->table_name} WHERE kriteria_pertama='$a'";
 		$stmt = $this->conn->prepare( $query );
 		$stmt->execute();
 		$row = $stmt->fetch(PDO::FETCH_ASSOC);
-		$this->nak = $row['jumkr2'];
+		$this->hak = $row['jumlah'];
 	}
 
 	function readSum3() {
@@ -119,11 +169,10 @@ class Bobot {
 		$this->hak = $row['avgkr'];
 	}
 
-	// update the product
-	function update($a,$b,$c) {
+	function update($a, $b, $c) {
 		$query = "UPDATE  {$this->table_name} SET nilai_analisa_kriteria = '$b' WHERE kriteria_pertama = '$a' and kriteria_kedua = '$c'";
 		$stmt = $this->conn->prepare($query);
-		// execute the query
+
 		if ($stmt->execute()) {
 			return true;
 		} else {
@@ -131,10 +180,10 @@ class Bobot {
 		}
 	}
 
-	// delete the product
 	function delete() {
-		$query = "DELETE FROM " . $this->table_name;
+		$query = "DELETE FROM {$this->table_name}";
 		$stmt = $this->conn->prepare($query);
+
 		if ($result = $stmt->execute()) {
 			return true;
 		} else {
