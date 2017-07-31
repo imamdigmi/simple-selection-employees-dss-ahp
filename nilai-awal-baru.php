@@ -13,7 +13,7 @@ if ($_POST) {
     include_once('includes/nilai-awal.inc.php');
     $nilObj = new NilaiAwal($db);
     $nilObj->nik = $_POST['nik'];
-    $nilai = (array_sum($_POST["kriteria"]) / 5);
+    $nilai = (array_sum($_POST["kriteria"]) / $kriObj->countAll());
     $nilObj->nilai = $nilai;
     $nilObj->keterangan = $nilObj->getRange($nilai);
     $nilObj->periode = $_POST['periode'];

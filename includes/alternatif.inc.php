@@ -57,6 +57,14 @@ class Alternatif {
 		return $stmt;
 	}
 
+	function readByRank() {
+		$query = "SELECT * FROM {$this->table_name} ORDER BY hasil_akhir DESC LIMIT 0,5";
+		$stmt = $this->conn->prepare($query);
+		$stmt->execute();
+
+		return $stmt;
+	}
+
 	function countAll(){
 		$query = "SELECT * FROM {$this->table_name} ORDER BY id_alternatif ASC";
 		$stmt = $this->conn->prepare( $query );
@@ -107,17 +115,38 @@ class Alternatif {
 		// $this->skor_alternatif = $row['skor_alternatif'];
 	}
 
+	function readSatu($a) {
+		$query = "SELECT * FROM {$this->table_name} WHERE id_alternatif='$a' LIMIT 0,1";
+		$stmt = $this->conn->prepare( $query );
+		$stmt->execute();
+
+		return $stmt;
+	}
+
 	function getNewID() {
-		$query = "SELECT id_alternatif FROM {$this->table_name} ORDER BY id_alternatif DESC LIMIT 1";
+		$query = "SELECT MAX(id_alternatif) AS code FROM {$this->table_name}";
 		$stmt = $this->conn->prepare($query);
 		$stmt->execute();
 		$row = $stmt->fetch(PDO::FETCH_ASSOC);
-		$pcs = explode("A", $row['id_alternatif']);
-		$result = "A".($pcs[1]+1);
-		return $result;
+
+		if ($row) {
+			return $this->genCode($row["code"], 'A', 3);
+		} else {
+			return $this->genCode($nomor_terakhir, 'A', 3);
+		}
 	}
 
-	// update the product
+	function genCode($latest, $key, $chars = 0) {
+    $new = intval(substr($latest, strlen($key))) + 1;
+    $numb = str_pad($new, $chars, "0", STR_PAD_LEFT);
+    return $key . $numb;
+	}
+
+	function genNextCode($start, $key, $chars = 0) {
+    $new = str_pad($start, $chars, "0", STR_PAD_LEFT);
+    return $key . $new;
+	}
+
 	function update() {
 		$query = "UPDATE {$this->table_name}
 				SET
@@ -145,7 +174,6 @@ class Alternatif {
 		$stmt->bindParam(':pendidikan', $this->pendidikan);
 		$stmt->bindParam(':id', $this->id);
 
-		// execute the query
 		if ($stmt->execute()) {
 			return true;
 		} else {
@@ -153,7 +181,6 @@ class Alternatif {
 		}
 	}
 
-	// delete the product
 	function delete() {
 		$query = "DELETE FROM {$this->table_name} WHERE id_alternatif = ?";
 		$stmt = $this->conn->prepare($query);

@@ -1,13 +1,12 @@
 <?php
 include_once('includes/header.inc.php');
 include_once('includes/alternatif.inc.php');
-$pro = new Alternatif($db);
-$stmt = $pro->readAllWithNilai();
-$count = $pro->countAll();
+$altObj = new Alternatif($db);
+$count = $altObj->countAll();
 
 if (isset($_POST['hapus-contengan'])) {
     $imp = "('".implode("','", array_values($_POST['checkbox']))."')";
-    $result = $pro->hapusell($imp);
+    $result = $altObj->hapusell($imp);
     if ($result) { ?>
         <script type="text/javascript">
           window.onload=function(){
@@ -54,7 +53,7 @@ if (isset($_POST['hapus-contengan'])) {
     	</div>
     	<br/>
 
-  	<table width="100%" class="table table-striped table-bordered" id="tabeldata">
+    	<table width="100%" class="table table-striped table-bordered" id="tabeldata">
         <thead>
           <tr>
             <th width="10px"><input type="checkbox" name="select-all" id="select-all" /></th>
@@ -67,27 +66,25 @@ if (isset($_POST['hapus-contengan'])) {
             <th>Tanggal Masuk</th>
             <th>Pendidikan</th>
             <th>Nilai</th>
-            <th>Hasil Akhir</th>
             <th width="100px">Aksi</th>
           </tr>
         </thead>
         <tbody>
-          <?php $no=1; while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) : ?>
+          <?php $no=1; $alt1a = $altObj->readAllWithNilai(); while ($row = $alt1a->fetch(PDO::FETCH_ASSOC)) : ?>
             <tr>
-              <td style="vertical-align:middle;"><input type="checkbox" value="<?php echo $row['id_alternatif'] ?>" name="checkbox[]" /></td>
-              <td style="vertical-align:middle;"><?php echo $row['id_alternatif'] ?></td>
-              <td style="vertical-align:middle;"><?php echo $row['nik'] ?></td>
-              <td style="vertical-align:middle;"><?php echo $row['nama'] ?></td>
-              <td style="vertical-align:middle;"><?php echo $row['tempat_lahir'] ?>, <?php echo $row['tanggal_lahir'] ?></td>
-              <td style="vertical-align:middle;"><?php echo $row['kelamin'] ?></td>
-              <td style="vertical-align:middle;"><?php echo $row['jabatan'] ?></td>
-              <td style="vertical-align:middle;"><?php echo $row['tanggal_masuk'] ?></td>
-              <td style="vertical-align:middle;"><?php echo $row['pendidikan'] ?></td>
-              <td style="vertical-align:middle;"><?php echo $row["nilai"] ?> (<?php echo $row["keterangan"] ?>)</td>
-              <td style="vertical-align:middle;"><?php echo $row['hasil_akhir'] ?></td>
-              <td class="text-center" style="vertical-align:middle;">
-            		<a href="data-alternatif-ubah.php?id=<?php echo $row['id_alternatif'] ?>" class="btn btn-warning btn-xs"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
-            		<a href="data-alternatif-hapus.php?id=<?php echo $row['id_alternatif'] ?>" onclick="return confirm('Yakin ingin menghapus data')" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+              <td><input type="checkbox" value="<?=$row['id_alternatif']?>" name="checkbox[]" /></td>
+              <td><?=$row['id_alternatif']?></td>
+              <td><?=$row['nik']?></td>
+              <td><?=$row['nama']?></td>
+              <td><?=$row['tempat_lahir']?>, <?=$row['tanggal_lahir']?></td>
+              <td><?=$row['kelamin']?></td>
+              <td><?=$row['jabatan']?></td>
+              <td><?=$row['tanggal_masuk']?></td>
+              <td><?=$row['pendidikan']?></td>
+              <td><?=$row["nilai"]?> (<?=$row["keterangan"]?>)</td>
+              <td class="text-center">
+            		<a href="data-alternatif-ubah.php?id=<?=$row['id_alternatif']?>" class="btn btn-warning btn-xs"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+            		<a href="data-alternatif-hapus.php?id=<?=$row['id_alternatif']?>" onclick="return confirm('Yakin ingin menghapus data')" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
               </td>
             </tr>
           <?php endwhile; ?>
