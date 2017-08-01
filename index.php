@@ -8,7 +8,7 @@ $stmt3 = $pro3->readAll();
 include_once 'includes/alternatif.inc.php';
 $pro1 = new Alternatif($db);
 $stmt1 = $pro1->readAll();
-$stmt4 = $pro1->readAll();
+$stmt4 = $pro1->readByFilter();
 
 include_once 'includes/kriteria.inc.php';
 $pro2 = new Kriteria($db);
