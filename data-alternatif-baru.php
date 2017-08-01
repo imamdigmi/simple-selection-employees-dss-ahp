@@ -5,16 +5,16 @@ include_once('includes/alternatif.inc.php');
 $altObj = new Alternatif($db);
 
 if($_POST){
-	$altObj->$id = $_POST["id_alternatif"];
-	$altObj->$nik = $_POST["nik"];
-	$altObj->$nama = $_POST["nama"];
-	$altObj->$tempat_lahir = $_POST["tempat_lahir"];
-	$altObj->$tanggal_lahir = $_POST["tanggal_lahir"];
-	$altObj->$kelamin = $_POST["kelamin"];
-	$altObj->$alamat = $_POST["alamat"];
-	$altObj->$jabatan = $_POST["jabatan"];
-	$altObj->$tanggal_masuk = $_POST["tanggal_masuk"];
-	$altObj->$pendidikan = $_POST["pendidikan"];
+	$altObj->id = $_POST["id_alternatif"];
+	$altObj->nik = $_POST["nik"];
+	$altObj->nama = $_POST["nama"];
+	$altObj->tempat_lahir = $_POST["tempat_lahir"];
+	$altObj->tanggal_lahir = $_POST["tanggal_lahir"];
+	$altObj->kelamin = $_POST["kelamin"];
+	$altObj->alamat = $_POST["alamat"];
+	$altObj->jabatan = $_POST["jabatan"];
+	$altObj->tanggal_masuk = $_POST["tanggal_masuk"];
+	$altObj->pendidikan = $_POST["pendidikan"];
 
 	if($altObj->insert()){ ?>
 		<script type="text/javascript">
