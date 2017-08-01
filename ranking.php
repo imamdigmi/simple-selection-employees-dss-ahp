@@ -45,7 +45,7 @@ $stmtx2y = $ranObj->readBob();
 				</tr>
 	    </thead>
 			<tbody>
-				<?php $alt1a = $altObj->readAll(); while ($row1 = $alt1a->fetch(PDO::FETCH_ASSOC)): ?>
+				<?php $alt1a = $altObj->readByFilter(); while ($row1 = $alt1a->fetch(PDO::FETCH_ASSOC)): ?>
 					<tr>
 						<th class="active"><?=$row1['nama']?></th>
 						<?php $a = $row1['id_alternatif']; ?>
@@ -100,7 +100,7 @@ $stmtx2y = $ranObj->readBob();
 	      </tr>
 	    </thead>
 	    <tbody>
-				<?php $alt1b = $altObj->readAll(); while ($row1 = $alt1b->fetch(PDO::FETCH_ASSOC)): ?>
+				<?php $alt1b = $altObj->readByFilter(); while ($row1 = $alt1b->fetch(PDO::FETCH_ASSOC)): ?>
 	        <tr>
 	          <th class="active"><?=$row1['nama']?></th>
 	          <?php $a1 = $row1['id_alternatif']; ?>
@@ -160,7 +160,7 @@ $stmtx2y = $ranObj->readBob();
 		<table width="100%" class="table table-striped table-bordered">
 	    <thead>
 	      <tr>
-					<th>NIM</th>
+					<th>NIK</th>
 					<th>Nama</th>
 					<th>Hasil Akhir</th>
 					<th class="success">Ranking</th>
@@ -169,7 +169,7 @@ $stmtx2y = $ranObj->readBob();
 	    <tbody>
 				<?php $rank = 1; $alt1c = $altObj->readByRank(); while ($row = $alt1c->fetch(PDO::FETCH_ASSOC)): ?>
 	        <tr>
-						<td><?=$row["nim"]?></td>
+						<td><?=$row["nik"]?></td>
 						<td><?=$row["nama"]?></td>
 						<td><?=number_format($row["hasil_akhir"], 4, '.', ',')?></td>
 						<td class="success"><?=$rank++?></td>

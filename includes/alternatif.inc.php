@@ -74,7 +74,7 @@ class Alternatif {
 	}
 
 	function readByRank() {
-		$query = "SELECT * FROM {$this->table_name} ORDER BY hasil_akhir DESC LIMIT 0,5";
+		$query = "SELECT * FROM {$this->table_name} a JOIN nilai_awal b ON a.id_alternatif=b.id_alternatif WHERE b.keterangan='B' ORDER BY hasil_akhir DESC LIMIT 0,5";
 		$stmt = $this->conn->prepare($query);
 		$stmt->execute();
 
