@@ -3,6 +3,8 @@
 
 Implementasi metode AHP pada pemilihan pegawai terbaik berdasarkan penilaian.
 
+![Screenshot Home](screenshot.png "Screenshot Home")
+
 ## Cara menggunakan
 1. Clone repository
     ```
@@ -10,8 +12,10 @@ Implementasi metode AHP pada pemilihan pegawai terbaik berdasarkan penilaian.
     ```
 2. Letakkan folder didalam root direktori web server
 3. Import `database.sql`
-4. Ubah properti konfigurasi database pada file `includes/config.php` sesuai dengan koneksi database anda 
+4. Ubah properti konfigurasi database pada file `includes/config.php` sesuai dengan koneksi database anda
 5. Kunjungi [localhost/simple-selection-employees-dss-ahp](http://localhost/simple-selection-employees-dss-ahp)
+
+![Relasi Tabel](table-relationship.png "Relasi Tabel")
 
 ## Cara melakukan perubahan
 ```
