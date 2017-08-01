@@ -68,8 +68,8 @@ $db = $config->getConnection();
                   <li class="dropdown">
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Laporan <span class="caret"></span></a>
                       <ul class="dropdown-menu">
-                          <li role="presentation"><a href="ranking.php">Usulan</a></li>
-                          <li role="presentation"><a href="laporan-cetak.php" target="_blank">Laporan</a></li>
+                        <li role="presentation"><a href="hasil-akhir.php">Hasil Akhir</a></li>
+                        <li role="presentation"><a href="ranking.php">Usulan</a></li>
                       </ul>
                   </li>
               <?php endif; ?>
