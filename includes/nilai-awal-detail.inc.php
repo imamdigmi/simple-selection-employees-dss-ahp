@@ -35,7 +35,7 @@ class NilaiAwalDetail {
 	}
 
 	function readAllWithCriteria() {
-		$query = "SELECT c.nama_kriteria AS kriteria, b.nilai FROM nilai_awal a JOIN {$this->table_name} b ON a.id_nilai_awal=b.id_nilai JOIN data_kriteria c ON b.id_kriteria=c.id_kriteria WHERE a.nik=?";
+		$query = "SELECT c.nama_kriteria AS kriteria, b.nilai FROM nilai_awal a JOIN {$this->table_name} b ON a.id_nilai_awal=b.id_nilai_awal JOIN data_kriteria c ON b.id_kriteria=c.id_kriteria WHERE a.id_alternatif=?";
 		$stmt = $this->conn->prepare($query);
 		$stmt->bindParam(1, $this->id);
 		$stmt->execute();
@@ -63,7 +63,6 @@ class NilaiAwalDetail {
 		return $stmt->rowCount();
 	}
 
-	// update the product
 	function update() {
 		$query = "UPDATE {$this->table_name}
 				SET
@@ -86,7 +85,6 @@ class NilaiAwalDetail {
 		}
 	}
 
-	// delete the product
 	function delete() {
 		$query = "DELETE FROM {$this->table_name} WHERE id_nilai_awal_detail = ?";
 		$stmt = $this->conn->prepare($query);

@@ -5,16 +5,16 @@ $db = $config->getConnection();
 
 include_once('includes/nilai-awal-detail.inc.php');
 $pro = new NilaiAwalDetail($db);
-$pro->id = $_GET["nik"];
+$pro->id = $_GET["id"];
 $stmt = $pro->readAllWithCriteria();
 
 include_once('includes/alternatif.inc.php');
 $altObj = new Alternatif($db);
-$altObj->nik = $_GET["nik"];
-$altObj->readOneByNik();
+$altObj->id = $_GET["id"];
+$altObj->readOne();
 ?>
 
-<h3><?php echo $altObj->nama . " (" . $_GET["nik"] . ")"?></h3>
+<h3><?php echo $altObj->nama . " (" . $_GET["id"] . ")"?></h3>
 <hr>
 <table width="100%" class="table table-striped">
   <thead>

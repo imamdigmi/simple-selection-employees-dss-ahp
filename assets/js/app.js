@@ -5,12 +5,12 @@ $(document).ready(function() {
   var $modal = $('.modal');
   // Show loader & then get content when modal is shown
   $modal.on('show.bs.modal', function(e) {
-    var nik = $(e.relatedTarget).data('nik');
+    var id_alternatif = $(e.relatedTarget).data('id-alternatif');
     $(this)
       .addClass('modal-scrollfix')
       .find('.modal-body')
       .html('loading...')
-      .load('http://localhost/employees/data-nilai-awal-detail.php?nik=' + nik, function() {
+      .load('data-nilai-awal-detail.php?id=' + id_alternatif, function() {
         // Use Bootstrap's built-in function to fix scrolling (to no avail)
         $modal
           .removeClass('modal-scrollfix')

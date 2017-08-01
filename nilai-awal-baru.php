@@ -12,7 +12,7 @@ $kri = $kriObj->readAll();
 if ($_POST) {
     include_once('includes/nilai-awal.inc.php');
     $nilObj = new NilaiAwal($db);
-    $nilObj->nik = $_POST['nik'];
+    $nilObj->id_alternatif = $_POST['id_alternatif'];
     $nilai = (array_sum($_POST["kriteria"]) / $kriObj->countAll());
     $nilObj->nilai = $nilai;
     $nilObj->keterangan = $nilObj->getRange($nilai);
@@ -62,11 +62,11 @@ if ($_POST) {
 					<div class="panel-body">
 						<form method="post">
                 <div class="form-group">
-                    <label for="nik">Pegawai</label>
-                    <select class="form-control" id="nik" name="nik">
+                    <label for="id_alternatif">Pegawai</label>
+                    <select class="form-control" id="id_alternatif" name="id_alternatif">
                         <option value="">---</option>
                         <?php while ($row = $alt->fetch(PDO::FETCH_ASSOC)) : ?>
-                            <option value="<?=$row["nik"]?>"><?=$row["nama"]?></option>
+                            <option value="<?=$row["id_alternatif"]?>"><?=$row["nama"]?></option>
                         <?php endwhile; ?>
                     </select>
                 </div>
@@ -80,7 +80,7 @@ if ($_POST) {
                     <label for="periode">Periode</label>
                     <select class="form-control" name="periode">
                         <option>---</option>
-                        <?php for ($i=2005; $i<=date("Y"); $i++): ?>
+                        <?php for ($i=2016; $i<=date("Y"); $i++): ?>
                           <option value="<?=$i?>"><?=$i?></option>
                         <?php endfor; ?>
                     </select>

@@ -49,6 +49,22 @@ class Alternatif {
 		return $stmt;
 	}
 
+	function readByFilter() {
+		$query = "SELECT * FROM {$this->table_name} a JOIN nilai_awal b ON a.id_alternatif=b.id_alternatif WHERE b.keterangan='B'";
+		$stmt = $this->conn->prepare( $query );
+		$stmt->execute();
+
+		return $stmt;
+	}
+
+	function countByFilter() {
+		$query = "SELECT * FROM {$this->table_name} a JOIN nilai_awal b ON a.id_alternatif=b.id_alternatif WHERE b.keterangan='B' ";
+		$stmt = $this->conn->prepare( $query );
+		$stmt->execute();
+
+		return $stmt->rowCount();
+	}
+
 	function readAllWithNilai() {
 		$query = "SELECT *, b.nilai, b.keterangan FROM {$this->table_name} a JOIN nilai_awal b ON a.nik=b.nik ORDER BY b.nilai DESC";
 		$stmt = $this->conn->prepare($query);

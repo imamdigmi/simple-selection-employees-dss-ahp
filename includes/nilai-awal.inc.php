@@ -4,7 +4,7 @@ class NilaiAwal {
 	private $table_name = "nilai_awal";
 
 	public $id;
-	public $nik;
+	public $id_alternatif;
 	public $nilai;
 	public $keterangan;
 	public $periode;
@@ -16,7 +16,7 @@ class NilaiAwal {
 	function insert() {
 		$query = "INSERT INTO {$this->table_name} VALUES(NULL,?,?,?,?)";
 		$stmt = $this->conn->prepare($query);
-		$stmt->bindParam(1, $this->nik);
+		$stmt->bindParam(1, $this->id_alternatif);
 		$stmt->bindParam(2, $this->nilai);
 		$stmt->bindParam(3, $this->keterangan);
 		$stmt->bindParam(4, $this->periode);
@@ -43,7 +43,7 @@ class NilaiAwal {
 		$stmt->execute();
 		$row = $stmt->fetch(PDO::FETCH_ASSOC);
 		$this->id = $row['id_nilai_awal'];
-		$this->nik = $row['nik'];
+		$this->id_alternatif = $row['id_alternatif'];
 		$this->nilai = $row['nilai'];
 		$this->keterangan = $row['keterangan'];
 		$this->periode = $row['periode'];
@@ -67,11 +67,10 @@ class NilaiAwal {
 		return $stmt->rowCount();
 	}
 
-	// update the product
 	function update() {
 		$query = "UPDATE {$this->table_name}
 				SET
-					nik = :nik,
+					id_alternatif = :id_alternatif,
 					nilai = :nilai,
 					keterangan = :keterangan,
 					periode = :periode
@@ -79,7 +78,7 @@ class NilaiAwal {
 					id_nilai_awal = :id";
 
 		$stmt = $this->conn->prepare($query);
-		$stmt->bindParam(':nik', $this->nik);
+		$stmt->bindParam(':id_alternatif', $this->id_alternatif);
 		$stmt->bindParam(':nilai', $this->nilai);
 		$stmt->bindParam(':keterangan', $this->keterangan);
 		$stmt->bindParam(':periode', $this->periode);
@@ -94,7 +93,7 @@ class NilaiAwal {
 
 	// delete the product
 	function delete() {
-		$query = "DELETE FROM {$this->table_name} WHERE id_nilai_awal = ?";
+		$query = "DELETE FROM {$this->table_name} WHERE id_nilai_awal=?";
 		$stmt = $this->conn->prepare($query);
 		$stmt->bindParam(1, $this->id);
 
