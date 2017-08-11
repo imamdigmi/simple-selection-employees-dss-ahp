@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Aug 01, 2017 at 12:39 AM
+-- Generation Time: Aug 11, 2017 at 01:31 PM
 -- Server version: 10.1.25-MariaDB
--- PHP Version: 7.1.7
+-- PHP Version: 7.1.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -374,7 +374,9 @@ INSERT INTO `data_alternatif` (`id_alternatif`, `nik`, `nama`, `tempat_lahir`, `
 ('A009', '130000000005610109', 'Guntur', 'Kalimantan Barat', '2017-08-21', 'pria', 'Kalimantan Barat', 'satpam', '2017-08-13', 'S1', 0.1020753290249626),
 ('A010', '130000000005610110', 'Santo', 'Kalimantan Barat', '2017-08-14', 'pria', 'Kalimantan Barat', 'satpam', '2017-08-13', 'S1', 0.36039179144442),
 ('A011', '130000000005610111', 'Kalimata', 'Kalimantan Barat', '2018-08-14', 'pria', 'Kalimantan Barat', 'satpam', '2017-08-13', 'S1', 0.0796589763000298),
-('A012', '130000000005610112', 'Virgo', 'Kalimantan Barat', '2017-08-14', 'pria', 'Kalimantan Barat', 'satpam', '2017-08-13', 'S1', 0.055202957958472104);
+('A012', '130000000005610112', 'Virgo', 'Kalimantan Barat', '2017-08-14', 'pria', 'Kalimantan Barat', 'satpam', '2017-08-13', 'S1', 0.055202957958472104),
+('A013', '130000000005610113', 'Rizu', 'Kalimantan Barat', '2017-08-01', 'pria', 'Kalimantan Barat', 'staf', '2017-08-15', 'S1', NULL),
+('A014', '130000000005610114', 'Ramita', 'Indramayu', '2017-09-01', 'pria', 'Indrmaayu', 'Pergudangan', '2017-08-18', 'S1', NULL);
 
 -- --------------------------------------------------------
 

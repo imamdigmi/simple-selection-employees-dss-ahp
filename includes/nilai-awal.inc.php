@@ -49,6 +49,24 @@ class NilaiAwal {
 		$this->periode = $row['periode'];
 	}
 
+	function readByAlternatif() {
+		$query = "SELECT * FROM {$this->table_name} WHERE id_alternatif=?";
+		$stmt = $this->conn->prepare($query);
+		$stmt->bindParam(1, $this->id_alternatif);
+		$stmt->execute();
+		$row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+		if ($row) {
+			$this->id = $row['id_nilai_awal'];
+			$this->id_alternatif = $row['id_alternatif'];
+			$this->nilai = $row['nilai'];
+			$this->keterangan = $row['keterangan'];
+			$this->periode = $row['periode'];
+		} else {
+			$this->id = false;
+		}
+	}
+
 	function getRange($n) {
 	  if ($n >= 75 AND $n <= 100) {
 	    return "B";

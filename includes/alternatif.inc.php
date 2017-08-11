@@ -66,7 +66,11 @@ class Alternatif {
 	}
 
 	function readAllWithNilai() {
-		$query = "SELECT *, b.nilai, b.keterangan FROM {$this->table_name} a JOIN nilai_awal b ON a.id_alternatif=b.id_alternatif WHERE a.id_alternatif IN (SELECT id_alternatif FROM nilai_awal) ORDER BY a.id_alternatif";
+		$query = "SELECT *, b.nilai, b.keterangan
+				FROM {$this->table_name} a
+					JOIN nilai_awal b ON a.id_alternatif=b.id_alternatif
+				WHERE a.id_alternatif IN (SELECT id_alternatif FROM nilai_awal)
+				ORDER BY a.id_alternatif";
 		$stmt = $this->conn->prepare($query);
 		$stmt->execute();
 
@@ -74,7 +78,12 @@ class Alternatif {
 	}
 
 	function readByRank() {
-		$query = "SELECT * FROM {$this->table_name} a JOIN nilai_awal b ON a.id_alternatif=b.id_alternatif WHERE b.keterangan='B' ORDER BY hasil_akhir DESC LIMIT 0,5";
+		$query = "SELECT *
+				FROM {$this->table_name} a
+					JOIN nilai_awal b ON a.id_alternatif=b.id_alternatif
+				WHERE b.keterangan='B'
+				ORDER BY hasil_akhir DESC
+				LIMIT 0,5";
 		$stmt = $this->conn->prepare($query);
 		$stmt->execute();
 
