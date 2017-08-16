@@ -80,7 +80,7 @@ if ($_POST) {
                     <label for="periode">Periode</label>
                     <select class="form-control" name="periode">
                         <option>---</option>
-                        <?php for ($i=2016; $i<=date("Y"); $i++): ?>
+                        <?php for ($i=2016; $i<=2030; $i++): ?>
                           <option value="<?=$i?>"><?=$i?></option>
                         <?php endfor; ?>
                     </select>
